@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .transition-normal {
+    transition: all 0.3s ease;
+  }
+}
