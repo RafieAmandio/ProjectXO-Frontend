@@ -4,6 +4,7 @@ import { deleteSession, getSession } from "@/utils/session";
 import { redirect } from "next/navigation";
 import React from "react";
 import Providers from "./_components/providers";
+import Header from "./_components/header";
 
 type TLayoutProps = {
   children: React.ReactNode;
@@ -27,6 +28,7 @@ export default async function Layout({ children }: TLayoutProps) {
 
   return (
     <Providers auth={{ isLogin, user: session?.user as TAuthUser }}>
+      <Header />
       {children}
     </Providers>
   );

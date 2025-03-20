@@ -7,8 +7,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        "work-sans": ["var(--font-work-sans)"],
-        urbanist: ["var(--font-urbanist)"],
+        glancyr: ["var(--font-glancyr)"],
+        "be-vietnam-pro": ["var(--font-be-vietnam-pro)"],
       },
       animation: {
         aurora: "aurora 60s linear infinite",
