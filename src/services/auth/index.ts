@@ -1,6 +1,12 @@
 import type { TResponse } from "@/types/response";
 import { api, apiBase, getError } from "@/utils/api";
-import type { TLoginRequest, TLoginResponse, TVerifyResponse } from "./types";
+import type {
+  TLoginRequest,
+  TLoginResponse,
+  TRegisterRequest,
+  TRegisterResponse,
+  TVerifyResponse,
+} from "./types";
 
 export const authLogin = async (data: TLoginRequest) => {
   try {
@@ -9,7 +15,18 @@ export const authLogin = async (data: TLoginRequest) => {
       data,
     );
 
-    console.log(response.data);
+    return response.data;
+  } catch (error) {
+    throw getError(error);
+  }
+};
+
+export const authRegister = async (data: TRegisterRequest) => {
+  try {
+    const response = await apiBase.post<TResponse<TRegisterResponse>>(
+      "/register",
+      data,
+    );
 
     return response.data;
   } catch (error) {

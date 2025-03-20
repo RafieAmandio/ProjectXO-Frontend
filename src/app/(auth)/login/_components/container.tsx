@@ -78,6 +78,7 @@ export default function Container() {
                 <input
                   type="email"
                   id="email"
+                  placeholder="Enter your email"
                   {...form.register("email")}
                   className="rounded-lg border border-gray-300 bg-transparent px-4 py-3 focus:outline-[#FF8E5E]"
                 />
@@ -90,6 +91,7 @@ export default function Container() {
                   <input
                     type={isPasswordShow ? "text" : "password"}
                     id="password"
+                    placeholder="Enter your password"
                     {...form.register("password")}
                     className="w-full rounded-lg border border-gray-300 bg-transparent px-4 py-3 focus:outline-[#FF8E5E]"
                   />
