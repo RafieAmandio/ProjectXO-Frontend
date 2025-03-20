@@ -10,6 +10,8 @@ export const env = createEnv({
       .enum(["development", "test", "production"])
       .default("development"),
     AUTH_SECRET_KEY: requiredString,
+    GOOGLE_CLIENT_ID: requiredString,
+    GOOGLE_CLIENT_SECRET: requiredString,
   },
 
   // Client environment variables configuration
@@ -24,6 +26,8 @@ export const env = createEnv({
     NODE_ENV: process.env.NODE_ENV,
     NEXT_PUBLIC_FE_URL: process.env.NEXT_PUBLIC_FE_URL,
     NEXT_PUBLIC_BE_URL: process.env.NEXT_PUBLIC_BE_URL,
+    GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
+    GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
   },
 
   // Skip validation if the SKIP_ENV_VALIDATION environment variable is set

@@ -9,11 +9,13 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { Icon } from "@iconify/react";
+import { signIn } from "next-auth/react";
 
 export default function Container() {
   const form = useForm<TLoginRequest>();
 
   const [isPasswordShow, setIsPasswordShow] = useState<boolean>(false);
+  const [isGoogleLoading, setIsGoogleLoading] = useState<boolean>(false);
 
   const authLoginMutation = useMutation({
     mutationFn: authLogin,
@@ -36,6 +38,23 @@ export default function Container() {
       email: value.email,
       password: value.password,
     });
+  };
+
+  const handleGoogleSignIn = async () => {
+    try {
+      setIsGoogleLoading(true);
+      await signIn("google", {
+        callbackUrl: "/dashboard",
+      });
+    } catch (error: unknown) {
+      const errorMessage =
+        error instanceof Error
+          ? error.message
+          : "Failed to sign in with Google";
+      toast.error(errorMessage);
+    } finally {
+      setIsGoogleLoading(false);
+    }
   };
 
   return (
@@ -101,12 +120,14 @@ export default function Container() {
                 <p className="text-base font-medium text-white">Sign In</p>
               </button>
               <button
-                type="submit"
+                type="button"
                 className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#F2F2F2] px-4 py-3"
+                onClick={handleGoogleSignIn}
+                disabled={isGoogleLoading}
               >
                 <Icon icon="devicon:google" className="h-4 w-4 text-black" />
                 <p className="text-base font-medium text-[#1F1F1F]">
-                  Sign In with Google
+                  {isGoogleLoading ? "Loading..." : "Sign In with Google"}
                 </p>
               </button>
               <div className="mt-2 flex items-center justify-center gap-2">
