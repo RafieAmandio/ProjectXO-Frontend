@@ -35,7 +35,7 @@ export default function PersonalityQuiz() {
           {[1, 2, 3, 4].map((questionNumber) => (
             <div key={questionNumber} className="space-y-4">
               <h2 className="font-medium">Question {questionNumber}</h2>
-              <p className="text-[#0d141c] mb-6">
+              <p className="text-[#0d141c]  mb-6">
                 Kamu baru saja dipromosikan menjadi manajer tim baru di perusahaanmu. Hari pertama di posisi baru ini
                 penuh dengan ekspektasi dan kesempatan untuk memperkenalkan ide-ide baru. Apa yang akan kamu lakukan?
               </p>
@@ -49,7 +49,7 @@ export default function PersonalityQuiz() {
                     </div>
                   </div>
                   <div className="bg-[#F7FAFC] p-4">
-                    <p className="text-[#0d141c] text-sm">
+                    <p className="text-[#0d141c] text-justify text-sm">
                       Aku memutuskan untuk menghabiskan beberapa hari pertama untuk mengamati dan belajar dari tim,
                       berharap mendapatkan bantuan dari seorang senior.
                     </p>
@@ -64,7 +64,7 @@ export default function PersonalityQuiz() {
                     </div>
                   </div>
                   <div className="bg-[#F7FAFC] p-4">
-                    <p className="text-[#0d141c] text-sm">
+                    <p className="text-[#0d141c] text-justify text-sm">
                       Aku memutuskan untuk menghabiskan beberapa hari pertama untuk mengamati dan belajar dari tim,
                       berharap mendapatkan bantuan dari seorang senior.
                     </p>
@@ -77,7 +77,7 @@ export default function PersonalityQuiz() {
 
         {/* Navigation Buttons */}
         <div className="flex justify-center gap-4 mt-16">
-          <button className="px-8 py-2 bg-[#ffb494] text-[#0d141c] rounded-xl">Previous</button>
+          <button className="px-8 py-2 bg-[#ffb494] text-[#ffffff] rounded-xl">Previous</button>
           <button className="px-8 py-2 bg-[#e2eeda] text-[#0d141c] rounded-xl">Next</button>
         </div>
       </div>
