@@ -27,16 +27,16 @@ export async function POST(request: Request) {
       }, { status: 400 });
     }
 
-    // Register the user with Supabase Auth without email confirmation
-    const { data: authData, error: signUpError } = await supabase.auth.signUp({
+    // Register the user with Supabase Auth
+    const { data: { user }, error: signUpError } = await supabase.auth.signUp({
       email,
       password,
       options: {
         data: {
           full_name,
           instagram_username,
-          confirmation_sent_at: Date.now(),
         },
+        emailRedirectTo: `${process.env.NEXT_PUBLIC_APP_URL}/auth/callback`,
       },
     });
 
@@ -53,7 +53,7 @@ export async function POST(request: Request) {
       }, { status: 400 });
     }
 
-    if (!authData.user) {
+    if (!user) {
       return NextResponse.json<TResponse<null>>({
         content: null,
         message: "Failed to create user",
@@ -71,7 +71,7 @@ export async function POST(request: Request) {
       .from("users")
       .insert([
         {
-          id: authData.user.id,
+          id: user.id,
           email,
           full_name,
           instagram_username,
@@ -96,23 +96,12 @@ export async function POST(request: Request) {
       }, { status: 500 });
     }
 
-    // Set session cookie and return response
-    const response = NextResponse.json<TResponse<Tables<"users">>>({
+    // Return success response with message to check email
+    return NextResponse.json<TResponse<Tables<"users">>>({
       content: userData,
-      message: "Registration successful",
+      message: "Registration successful. Please check your email to verify your account.",
       errors: null,
-    });
-
-    if (authData.session) {
-      response.cookies.set(sessionCookieKey, authData.session.access_token, {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
-        sameSite: "lax",
-        maxAge: 60 * 60 * 24 * 7, // 1 week
-      });
-    }
-
-    return response;
+    }, { status: 200 });
 
   } catch (error) {
     return NextResponse.json<TResponse<null>>({
