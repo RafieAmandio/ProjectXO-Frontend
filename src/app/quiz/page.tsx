@@ -10,7 +10,7 @@ export default function PersonalityQuiz() {
         bg-center                      /* Center horizontally & vertically */
         bg-contain                     /* or bg-cover, depends on your desired sizing */
         px-4
-        py-8
+        py-20
         md:px-8
     ">
       <div className="max-w-4xl mx-auto">
