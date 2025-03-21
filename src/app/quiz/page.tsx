@@ -13,7 +13,7 @@ export default function PersonalityQuiz() {
         py-8
         md:px-8
     ">
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         {/* Logo */}
         <div className="mb-16">
           <Image src="/logo.svg" alt="XO Logo" width={40} height={40} className="w-10 h-10" />
@@ -42,13 +42,13 @@ export default function PersonalityQuiz() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Option A */}
-                <div className="bg-[#ffb494] rounded-2xl overflow-hidden flex">
+                <div className="bg-[#ffb494] rounded-2xl overflow-hidden border border-[#E0E0E0] flex">
                   <div className="flex items-center justify-center p-4">
                     <div className="bg-[#ff8e5e] rounded-full w-10 h-10 flex items-center justify-center">
                       <span className="text-white font-medium">A</span>
                     </div>
                   </div>
-                  <div className="bg-[#E0E0E0] p-4">
+                  <div className="bg-[#F7FAFC] p-4">
                     <p className="text-[#0d141c] text-sm">
                       Aku memutuskan untuk menghabiskan beberapa hari pertama untuk mengamati dan belajar dari tim,
                       berharap mendapatkan bantuan dari seorang senior.
@@ -57,13 +57,13 @@ export default function PersonalityQuiz() {
                 </div>
 
                 {/* Option B */}
-                <div className="bg-[#ffb494] rounded-2xl overflow-hidden flex">
+                <div className="bg-[#ffb494] rounded-2xl overflow-hidden border border-[#E0E0E0] flex">
                   <div className="flex items-center justify-center p-4">
                     <div className="bg-[#ff8e5e] rounded-full w-10 h-10 flex items-center justify-center">
                       <span className="text-white font-medium">B</span>
                     </div>
                   </div>
-                  <div className="bg-[#E0E0E0] p-4">
+                  <div className="bg-[#F7FAFC] p-4">
                     <p className="text-[#0d141c] text-sm">
                       Aku memutuskan untuk menghabiskan beberapa hari pertama untuk mengamati dan belajar dari tim,
                       berharap mendapatkan bantuan dari seorang senior.
