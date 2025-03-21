@@ -62,15 +62,15 @@ export default function Container() {
   };
 
   return (
-    <section className="h-screen w-full bg-[url('/app/login/login-bg.png')] bg-contain bg-center">
+    <section className="min-h-screen w-full bg-[url('/app/login/login-bg.png')] bg-contain bg-center md:h-screen">
       <div className="flex h-full w-full items-center justify-center">
-        <div className="w-full max-w-4xl">
+        <div className="w-full max-w-4xl px-4 py-16">
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <div className="mb-8">
-              <h2 className="font-glancyr mb-2 text-center text-4xl font-normal text-black">
+              <h2 className="mb-2 text-center font-glancyr text-2xl font-normal text-black md:text-4xl">
                 Tolong Lengkapi Data Formulir ini
               </h2>
-              <p className="text-center text-base font-normal text-black/75">
+              <p className="text-center text-sm font-normal text-black/75 md:text-base">
                 Please take a few minutes to fill in your profile so we can
                 customize the opportunities for you.
               </p>
@@ -78,7 +78,10 @@ export default function Container() {
             <div className="mb-8 grid grid-cols-2 gap-4">
               <div className="col-span-2 md:col-span-1">
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="name" className="font-medium">
+                  <label
+                    htmlFor="name"
+                    className="text-sm font-medium md:text-base"
+                  >
                     Name
                   </label>
                   <input
