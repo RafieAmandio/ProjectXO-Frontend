@@ -7,6 +7,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AppProgressBar } from "next-nprogress-bar";
 import { Toaster } from "sonner";
 import { ReactLenis } from "lenis/react";
+import { SessionProvider } from "next-auth/react";
 
 type TProvidersProps = {
   children: React.ReactNode;
@@ -27,18 +28,20 @@ export default function Providers({ children, config }: TProvidersProps) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ReactLenis root={true}>
-        <ConfigProvider config={config}>
-          <AppProgressBar
-            height="4px"
-            color={"#000000"}
-            options={{ showSpinner: false }}
-            shallowRouting
-          />
-          <Toaster position="top-center" richColors />
-          {children}
-        </ConfigProvider>
-      </ReactLenis>
+      <SessionProvider>
+        <ReactLenis root={true}>
+          <ConfigProvider config={config}>
+            <AppProgressBar
+              height="4px"
+              color={"#000000"}
+              options={{ showSpinner: false }}
+              shallowRouting
+            />
+            <Toaster position="top-center" richColors />
+            {children}
+          </ConfigProvider>
+        </ReactLenis>
+      </SessionProvider>
     </QueryClientProvider>
   );
 }

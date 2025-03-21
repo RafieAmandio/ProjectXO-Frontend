@@ -3,16 +3,33 @@ import { TConfig } from "@/stores/config";
 import "@/styles/globals.css";
 import { cn } from "@/utils/classname";
 import type { Metadata } from "next";
-import { Urbanist, Work_Sans } from "next/font/google";
+import { Be_Vietnam_Pro } from "next/font/google";
+import localFont from "next/font/local";
 
-const fontWorkSans = Work_Sans({
-  variable: "--font-work-sans",
-  weight: ["400", "500", "600", "700"],
-  subsets: ["latin"],
+const fontGlancyr = localFont({
+  src: [
+    {
+      path: "../../public/fonts/Glancyr/Glancyr-Regular.otf",
+      weight: "400",
+    },
+    {
+      path: "../../public/fonts/Glancyr/Glancyr-Medium.otf",
+      weight: "500",
+    },
+    {
+      path: "../../public/fonts/Glancyr/Glancyr-Semibold.otf",
+      weight: "600",
+    },
+    {
+      path: "../../public/fonts/Glancyr/Glancyr-Bold.otf",
+      weight: "700",
+    },
+  ],
+  variable: "--font-glancyr",
 });
 
-const fontUrbanist = Urbanist({
-  variable: "--font-urbanist",
+const fontBeVietnamPro = Be_Vietnam_Pro({
+  variable: "--font-be-vietnam-pro",
   weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
 });
@@ -56,9 +73,9 @@ export default async function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          fontWorkSans.variable,
-          fontUrbanist.variable,
-          `font-urbanist antialiased`,
+          fontGlancyr.variable,
+          fontBeVietnamPro.variable,
+          `font-be-vietnam-pro bg-[#F7FAFC] antialiased`,
         )}
       >
         <Providers config={config as TConfig}>{children}</Providers>

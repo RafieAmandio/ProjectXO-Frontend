@@ -1,5 +1,21 @@
 import { z } from "zod";
 
+export const schemaRegisterRequest = z.object({
+  name: z.string().min(1, "Name is required"),
+  email: z.string().email("Invalid email address"),
+  password: z.string().min(6, "Password must be at least 6 characters long"),
+  confirmPassword: z
+    .string()
+    .min(6, "Password must be at least 6 characters long"),
+  instagram: z.string().optional(),
+});
+
+export type TRegisterRequest = z.infer<typeof schemaRegisterRequest>;
+
+export const schemaRegisterResponse = z.object({});
+
+export type TRegisterResponse = z.infer<typeof schemaRegisterResponse>;
+
 export const schemaLoginRequest = z.object({
   email: z.string().email("Invalid email address"),
   password: z.string().min(6, "Password must be at least 6 characters long"),
