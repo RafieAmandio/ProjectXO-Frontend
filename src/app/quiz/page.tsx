@@ -105,8 +105,8 @@ export default function PersonalityQuiz() {
         <div className="space-y-16">
           {pageQuestions.map((q) => (
             <div key={q.id} className="space-y-4">
-              <h2 className="font-medium">Question {q.display_order}</h2>
-              <p className="text-[#0d141c] mb-6">{q.question_text}</p>
+              <h2 className="font-bold">Question {q.display_order}</h2>
+              <p className="text-[#0d141c] mb-4">{q.question_text}</p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Option A */}
@@ -124,7 +124,7 @@ export default function PersonalityQuiz() {
                 >
                   <div className="flex items-center justify-center p-4">
                     <div className="bg-[#ff8e5e] rounded-full w-10 h-10 flex items-center justify-center">
-                      <span className="text-white font-medium">A</span>
+                      <span className="text-white font-bold">A</span>
                     </div>
                   </div>
                   <div className="bg-[#F7FAFC] p-4 flex-1 h-full flex items-center">
