@@ -14,10 +14,6 @@ export default function PersonalityQuiz() {
         md:px-8
     ">
       <div className="max-w-4xl mx-auto">
-        {/* Logo */}
-        <div className="mb-16">
-          <Image src="/logo.svg" alt="XO Logo" width={40} height={40} className="w-10 h-10" />
-        </div>
 
         {/* Quiz Header */}
         <div className="mb-12">
